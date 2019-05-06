@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('/marker', 'MapsController@storeMarker');
-
+Route::get('/markers', 'MapsController@fetchMarkers');
+Route::put('/marker/{marker}', 'MapsController@updateMarker');
+Route::put('/marker/{marker}', 'MapsController@deleteMarker');
