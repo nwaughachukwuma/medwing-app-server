@@ -62,17 +62,18 @@ class MapsController extends Controller
             $error['code'] = 'EDIT_MARKER_ERROR';
             return response()->json(['$error' => $error], 403);
         }
-        $marker = Marker::update($data);
+        Marker::whereId($marker->id)->update($data);
+        $marker = Marker::find($marker->id);
         $success['marker'] = $marker;
         $success['message'] = 'Successfully updated marker';
         $success['code'] = 'MARKER_UPDATED';
-        return response()->json(['markers' => $makers], 200);
+        return response()->json(['marker' => $success], 200);
     }
 
     public function deleteMarker(Request $request, Marker $marker) {
 
         $marker->delete();
-        $makers = Marker::all();
-        return response()->json(['markers' => $makers], 200);
+        $markers = Marker::all();
+        return response()->json(['markers' => $markers], 200);
     }
 }
