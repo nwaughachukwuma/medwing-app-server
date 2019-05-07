@@ -33,14 +33,14 @@ class MapsController extends Controller
         $success['marker'] = $marker;
         $success['message'] = 'Successfully saved marker';
         $success['code'] = 'MARKER_SAVED';
-        return response()->json(['success'=> $success], 200);
+        return response()->json(['success'=> $success], 200, [], JSON_NUMERIC_CHECK);
         
     }
 
     public function fetchMarkers(Request $request) {
 
         $markers = Marker::all();
-        return response()->json(['markers' => $markers], 200);
+        return response()->json(['markers' => $markers], 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function updateMarker(Request $request, Marker $marker) {
@@ -67,13 +67,16 @@ class MapsController extends Controller
         $success['marker'] = $marker;
         $success['message'] = 'Successfully updated marker';
         $success['code'] = 'MARKER_UPDATED';
-        return response()->json(['marker' => $success], 200);
+        return response()->json(['success' => $success], 200, [], JSON_NUMERIC_CHECK);
     }
 
     public function deleteMarker(Request $request, Marker $marker) {
 
         $marker->delete();
         $markers = Marker::all();
-        return response()->json(['markers' => $markers], 200);
+        $success['message'] = 'Successfully deleted a place';
+        $success['code'] = 'MARKER_DELETED';
+        $success['markers'] = $markers;
+        return response()->json(['success' => $success], 200, [], JSON_NUMERIC_CHECK);
     }
 }
