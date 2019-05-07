@@ -17,8 +17,8 @@ class MapsController extends Controller
             $data = $request->all();
         }
         $rules = [
-            'lat' => 'required',
-            'lng' => 'required',
+            'lat' => 'required|unique:markers,lat',
+            'lng' => 'required|unique:markers,lng',
             'title' => 'required'
         ];
         $validator = Validator::make($data, $rules);
