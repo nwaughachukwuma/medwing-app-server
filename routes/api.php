@@ -22,3 +22,6 @@ Route::post('/marker', 'MapsController@storeMarker');
 Route::get('/markers', 'MapsController@fetchMarkers');
 Route::put('/marker/{marker}', 'MapsController@updateMarker');
 Route::delete('/marker/{marker}', 'MapsController@deleteMarker');
+
+
+Route::post('/google_translate', 'GoogleTranslateController@translate');

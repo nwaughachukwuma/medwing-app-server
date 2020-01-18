@@ -11,6 +11,15 @@
 |
 */
 
+use Stichoza\GoogleTranslate\GoogleTranslate;
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('google_translate/{word}/{lang}', function ($word, $lang) {
+    $tr = new GoogleTranslate($lang);
+    $text = $tr->translate($word);
+    return $text;
 });
