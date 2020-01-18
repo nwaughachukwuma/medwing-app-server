@@ -1,6 +1,17 @@
 <?php
 
-$pg_url = parse_url(env('DATABASE_URL'));
+$environment = env('APP_ENV', 'local');
+if (!env('DATABASE_URL', null) || $environment != 'production') {
+    $pg_url = [
+        'host' => '127.0.0.1',
+        'path' => '/path/to/pgsql',
+        'user' => 'db_user',
+        'pass' => 'db_pass'
+    ];
+} else {
+    $pg_url = parse_url(env('DATABASE_URL'));
+}
+
 
 return [
 

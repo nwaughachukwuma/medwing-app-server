@@ -1,7 +1,7 @@
 ## Medwing Maps App Server
 
 ### A laravel powered application
-`As backend for [Medwing Maps App](https://medwing-app-87d6e.web.app)`
+As backend for [Medwing Maps App](https://medwing-app-87d6e.web.app)
 
 ## Design Decision
 I have taken the following approach to serve the front end on this server
@@ -15,7 +15,7 @@ I have taken the following approach to serve the front end on this server
 - Run `composer install`
 - Serve the app
   > App is using laravel built in server `php artisan serve`
-- Ensure that the app is running on port 800: `http://localhost:8000`. The Maps App will hit the server on that address.
+- Ensure that the app is running on port 8000: `http://localhost:8000`. The Maps App will hit the server on that address.
   > If you must change the address, ensure you consolidate by updating the address on the client as well
 
 Laravel is a web application framework with expressive, elegant syntax.
